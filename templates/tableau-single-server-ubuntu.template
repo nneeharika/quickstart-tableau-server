@@ -322,9 +322,10 @@ Resources:
             #!/bin/bash -x
             apt-get update
             apt-get install -y python-setuptools
+            apt-get install -y python-pip
 
             # Call Init
-            /usr/bin/easy_install --script-dir /opt/aws/bin https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+            pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
             /opt/aws/bin/cfn-init --stack ${AWS::StackName} --resource TableauServer --region ${AWS::Region}
             # Various machine configs
             hostnamectl set-hostname $(hostnamectl --static)
