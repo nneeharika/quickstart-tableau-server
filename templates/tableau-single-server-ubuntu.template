@@ -326,7 +326,7 @@ Resources:
 
             # Call Init
             pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
-            /opt/aws/bin/cfn-init --stack ${AWS::StackName} --resource TableauServer --region ${AWS::Region}
+            /usr/local/bin/cfn-init --stack ${AWS::StackName} --resource TableauServer --region ${AWS::Region}
             # Various machine configs
             hostnamectl set-hostname $(hostnamectl --static)
             setup_sftp() {
@@ -346,7 +346,7 @@ Resources:
             install
             unset -f install
             # Signal successful completion
-            /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource TableauServer --region ${AWS::Region}
+            /usr/local/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource TableauServer --region ${AWS::Region}
             # Cleanup
             rm -f /tmp/config.json
             rm -f /tmp/registration.json
